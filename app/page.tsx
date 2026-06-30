@@ -81,6 +81,64 @@ function BulletCard({
   );
 }
 
+function CoachingOptionCard({
+  title,
+  price,
+  subtitle,
+  items,
+  buttonLabel,
+  href,
+  primary = false,
+}: {
+  title: string;
+  price: string;
+  subtitle: string;
+  items: string[];
+  buttonLabel: string;
+  href: string;
+  primary?: boolean;
+}) {
+  return (
+    <div
+      className={`flex flex-col ${primary ? "mx-auto max-w-lg text-center" : "text-center"}`}
+    >
+      {primary ? (
+        <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
+          {title}
+        </h2>
+      ) : (
+        <h3 className="text-lg font-semibold tracking-tight">{title}</h3>
+      )}
+      <p className="mt-4 text-sm font-medium tracking-wide text-muted">
+        {price}
+      </p>
+      <p className="mt-6 text-base leading-relaxed text-muted md:text-lg">
+        {subtitle}
+      </p>
+      <ul
+        className={`mt-8 space-y-3 text-left ${primary ? "mx-auto max-w-md" : "w-full"}`}
+      >
+        {items.map((item) => (
+          <li
+            key={item}
+            className="flex gap-3 text-base leading-relaxed text-muted"
+          >
+            <span className="text-foreground">•</span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+      <div className={`mt-10 ${primary ? "" : "w-full sm:mx-auto sm:w-auto"}`}>
+        {primary ? (
+          <CtaButton href={href}>{buttonLabel}</CtaButton>
+        ) : (
+          <OutlineButton href={href}>{buttonLabel}</OutlineButton>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <>
@@ -226,7 +284,7 @@ export default function Home() {
                 title="Coaching Philosophy"
                 items={[
                   "Personal coaching",
-                  "Intelligent training",
+                  "Highly individualized training",
                   "Holistic athlete development",
                   "Training that adapts to your life",
                   "Long-term performance instead of short-term success",
@@ -239,70 +297,73 @@ export default function Home() {
         {/* Coaching options */}
         <section className="border-t border-border">
           <div className="mx-auto max-w-7xl px-6 py-28 text-center md:px-12 md:py-40">
-            <div className="mx-auto max-w-lg">
-              <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
-                Premium Coaching
-              </h2>
-              <p className="mt-4 text-sm font-medium tracking-wide text-muted">
-                starting from CHF 300/month
-              </p>
-              <p className="mt-6 text-base leading-relaxed text-muted md:text-lg">
-                Work directly with Andreas through personalised coaching, race
-                planning, regular reviews and continuous personal support.
-              </p>
-              <div className="mt-10">
-                <CtaButton href={PREMIUM_COACHING_URL}>
-                  Apply for Coaching
-                </CtaButton>
-              </div>
-            </div>
+            <CoachingOptionCard
+              primary
+              title="Premium Coaching"
+              price="From CHF 300/month"
+              subtitle="Everything you need to become the best athlete you can be."
+              items={[
+                "Highly individualized training plan",
+                "Daily review of your training and progress",
+                "Continuous plan adjustments whenever needed",
+                "Personal feedback and direct communication",
+                "Race planning and race-day strategy",
+                "Nutrition guidance including Fuelin integration",
+                "Swim, bike and run technique analysis",
+                "Equipment and training advice",
+                "Coaching that adapts to your life, your goals and your performance",
+              ]}
+              buttonLabel="Apply for Coaching"
+              href={PREMIUM_COACHING_URL}
+            />
 
             <div className="mx-auto mt-24 max-w-3xl border-t border-border pt-20">
               <div className="grid gap-16 sm:grid-cols-2 sm:gap-12">
-                <div className="flex flex-col items-center">
-                  <h3 className="text-lg font-semibold tracking-tight">
-                    AI-supported Triathlon Coaching
-                  </h3>
-                  <p className="mt-3 text-sm font-medium tracking-wide text-muted">
-                    starting from USD 14.99/month
-                  </p>
-                  <div className="mt-8 w-full sm:w-auto">
-                    <OutlineButton href={TRIDOT_URL}>
-                      Start with TriDot
-                    </OutlineButton>
-                  </div>
-                </div>
-                <div className="flex flex-col items-center">
-                  <h3 className="text-lg font-semibold tracking-tight">
-                    AI-supported Run Coaching
-                  </h3>
-                  <p className="mt-3 text-sm font-medium tracking-wide text-muted">
-                    starting from USD 14.99/month
-                  </p>
-                  <div className="mt-8 w-full sm:w-auto">
-                    <OutlineButton href={RUNDOT_URL}>
-                      Start with RunDot
-                    </OutlineButton>
-                  </div>
-                </div>
+                <CoachingOptionCard
+                  title="Triathlon Coaching"
+                  price="From CHF 15/month"
+                  subtitle="Ideal for athletes who enjoy training independently while benefiting from my experience whenever needed."
+                  items={[
+                    "Highly individualized training plan",
+                    "Personal onboarding",
+                    "My supervision and guidance",
+                    "Training that adapts to your progress",
+                    "Upgrade to Premium Coaching at any time",
+                  ]}
+                  buttonLabel="Start with TriDot"
+                  href={TRIDOT_URL}
+                />
+                <CoachingOptionCard
+                  title="Run Coaching"
+                  price="From CHF 15/month"
+                  subtitle="Ideal for runners who enjoy training independently while benefiting from my experience whenever needed."
+                  items={[
+                    "Highly individualized training plan",
+                    "Personal onboarding",
+                    "My supervision and guidance",
+                    "Training that adapts to your progress",
+                    "Upgrade to Premium Coaching at any time",
+                  ]}
+                  buttonLabel="Start with RunDot"
+                  href={RUNDOT_URL}
+                />
               </div>
             </div>
 
             <div className="mx-auto mt-20 max-w-xl rounded-2xl border border-border px-8 py-10 text-left md:px-10">
               <h3 className="text-lg font-semibold tracking-tight">
-                Not sure which option is right for you?
+                Not sure which coaching option is right for you?
               </h3>
               <p className="mt-4 text-base leading-relaxed text-muted">
-                Let&apos;s discuss your goals together. During a{" "}
-                <a
-                  href={INTRO_CALL_URL}
-                  className="font-medium text-accent underline decoration-accent/30 underline-offset-4 transition-colors hover:text-accent-hover hover:decoration-accent"
-                >
-                  free introductory call
-                </a>{" "}
-                we&apos;ll decide whether Premium Coaching, TriDot or RunDot is
-                the best fit for you.
+                Book a free introductory call and together we&apos;ll find the
+                coaching solution that best fits your goals, your lifestyle and
+                your ambitions.
               </p>
+              <div className="mt-8">
+                <CtaButton href={INTRO_CALL_URL}>
+                  Book a free introductory call
+                </CtaButton>
+              </div>
             </div>
           </div>
         </section>
