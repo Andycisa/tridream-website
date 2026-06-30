@@ -10,7 +10,7 @@ const geistSans = Geist({
 export const metadata: Metadata = {
   title: "TriDream Coaching — Train Smart. Not Hard.",
   description:
-    "AI-powered. Personally coached. Personalised endurance coaching for athletes who want to make the most of every training hour.",
+    "Personal endurance coaching with Andreas Schönherr. Ironman and Kona finisher, certified coach, built on real racing experience.",
 };
 
 export default function RootLayout({
