@@ -9,6 +9,8 @@ const RUNDOT_URL =
   "https://app.rundot.com/onboard/sign-up/andreasschoenherr";
 const GOOGLE_REVIEWS_URL =
   "https://www.google.com/search?client=safari&hs=3JVV&sca_esv=9c297ecd27ddd5cd&cs=0&hl=de-AT&biw=1501&bih=841&si=APenkKm7iecQ4G6P-TsbSMFKIQtv3EFIqRAFw-i8uEbk55Z-_0sPBgz4-nyrgwzJ75Z9BpFPoIH-Ey50eIIpFjZWzJWu3gDUe3i3YkB8BZu3LbRkklR9vuYmJfn5qutOs5_QjX5SkXh3hI2F-tGYh9vMNdtMjHsA0g%3D%3D&q=TriDreamCoaching+Rezensionen&sa=X&ved=2ahUKEwjDyciTv66VAxUDSPEDHX4qEjYQ0bkNegQIKRAF";
+const COACH_DISCOVERY_CALL_URL =
+  "https://predictivefitness.pipedrive.com/scheduler/BpklX3fa/initial-connect-call";
 
 function CtaButton({
   children,
@@ -363,6 +365,53 @@ export default function Home() {
               <div className="mt-8">
                 <CtaButton href={INTRO_CALL_URL}>
                   Book a free introductory call
+                </CtaButton>
+              </div>
+            </div>
+
+            <div className="mx-auto mt-8 max-w-xl rounded-2xl border border-border px-8 py-10 text-left md:px-10">
+              <h3 className="text-lg font-semibold tracking-tight">
+                Looking for a TriDot Coach?
+              </h3>
+              <div className="mt-4 space-y-4 text-base leading-relaxed text-muted">
+                <p>
+                  As TriDot Coach Coordinator for the DACH region, I also
+                  support athletes in finding the right TriDot coach and
+                  regularly onboard new coaches into the TriDot ecosystem.
+                </p>
+                <p>
+                  If Premium Coaching with me is not the best fit, I am happy
+                  to connect you with another qualified TriDot coach.
+                </p>
+              </div>
+              <div className="mt-8">
+                <CtaButton href={INTRO_CALL_URL}>Talk to Andreas</CtaButton>
+              </div>
+            </div>
+
+            <div className="mx-auto mt-8 max-w-xl rounded-2xl border border-border px-8 py-10 text-left md:px-10">
+              <h3 className="text-lg font-semibold tracking-tight">
+                Become a TriDot Coach
+              </h3>
+              <div className="mt-4 space-y-4 text-base leading-relaxed text-muted">
+                <p>
+                  Interested in growing your coaching business with TriDot?
+                </p>
+                <p>
+                  As TriDot Coach Coordinator for the DACH region, I support
+                  coaches who want to integrate TriDot into their coaching
+                  business.
+                </p>
+                <p>
+                  Whether you&apos;re an experienced coach looking to save time
+                  and scale your business, or you&apos;re just getting started,
+                  I&apos;m happy to share my experience and help you get set up
+                  with TriDot.
+                </p>
+              </div>
+              <div className="mt-8">
+                <CtaButton href={COACH_DISCOVERY_CALL_URL}>
+                  Book a Coach Discovery Call
                 </CtaButton>
               </div>
             </div>
