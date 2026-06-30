@@ -255,18 +255,19 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Why athletes choose TriDream */}
+        {/* Why athletes choose TriDream Coaching */}
         <section className="border-t border-border">
           <div className="mx-auto max-w-7xl px-6 py-28 md:px-12 md:py-40">
-            <SectionLabel>Why athletes choose TriDream</SectionLabel>
+            <SectionLabel>Why athletes choose TriDream Coaching</SectionLabel>
             <div className="mt-16 grid gap-16 md:grid-cols-3 md:gap-12">
               <BulletCard
                 title="Experience"
                 items={[
-                  "Ironman World Championship Finisher",
-                  "Multiple Ironman finishes",
-                  "Multiple Ironman 70.3 finishes",
-                  "Multiple marathon finishes",
+                  "3× Ironman World Championship Qualifier",
+                  "2× Ironman 70.3 World Championship Qualifier",
+                  "Kona World Championship Finisher",
+                  "Multiple Ironman and Ironman 70.3 finishes",
+                  "Multiple marathon and ultra-marathon finishes",
                   "Over 20 years of endurance sport",
                 ]}
               />
@@ -276,8 +277,9 @@ export default function Home() {
                   "Swiss Triathlon Certified Coach",
                   "Ironman University Certified Coach",
                   "TriDot Certified Coach",
+                  "Endurance Coaching Certification (ECSI)",
                   "Swiss Aquatics Video Analysis",
-                  "SLRG Pool / Lake / River",
+                  "SLRG Pool, Lake & River Lifesaving Certifications",
                 ]}
               />
               <BulletCard
