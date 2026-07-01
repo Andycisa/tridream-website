@@ -4,7 +4,10 @@ export const SITE_URL = "https://www.tridreamcoaching.com";
 
 export const siteConfig = {
   name: "TriDream Coaching",
+  description:
+    "Premium triathlon and endurance coaching by Swiss Triathlon Certified Coach Andreas Schoenherr. Train Smart. Not Hard.",
   ogImage: "/images/andreas-hero.jpeg",
+  logo: "/images/logos/tridream-logo.jpg",
 };
 
 export function createPageMetadata({

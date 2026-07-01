@@ -8,7 +8,7 @@ export function SiteHeader() {
         <Link href="/">
           <Image
             src="/images/logos/tridream-logo.jpg"
-            alt="TriDream Coaching"
+            alt="TriDream Coaching logo — premium triathlon and endurance coaching"
             width={150}
             height={100}
             priority

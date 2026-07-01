@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
+import { JsonLd } from "../components/JsonLd";
 import { LegalSection } from "../components/LegalSection";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteHeader } from "../components/SiteHeader";
+import {
+  breadcrumbHome,
+  createBreadcrumbStructuredData,
+} from "../lib/structured-data";
 import { createPageMetadata } from "../lib/site";
 
 export const metadata: Metadata = createPageMetadata({
@@ -13,6 +18,12 @@ export const metadata: Metadata = createPageMetadata({
 export default function ImprintPage() {
   return (
     <>
+      <JsonLd
+        data={createBreadcrumbStructuredData([
+          breadcrumbHome,
+          { name: "Imprint", path: "/imprint" },
+        ])}
+      />
       <SiteHeader />
       <main className="mx-auto max-w-7xl px-6 pt-28 pb-20 md:px-12 md:pt-36 md:pb-28">
         <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">

@@ -4,9 +4,14 @@ import {
   BookingButton,
   BookingProvider,
 } from "./components/BookingProvider";
+import { JsonLd } from "./components/JsonLd";
 import { SiteFooter } from "./components/SiteFooter";
 import { SiteHeader } from "./components/SiteHeader";
 import { BOOKING_URLS } from "./lib/booking";
+import {
+  breadcrumbHome,
+  createBreadcrumbStructuredData,
+} from "./lib/structured-data";
 import { createPageMetadata } from "./lib/site";
 
 export const metadata: Metadata = createPageMetadata({
@@ -141,6 +146,7 @@ function CoachingOptionCard({
 export default function Home() {
   return (
     <BookingProvider>
+      <JsonLd data={createBreadcrumbStructuredData([breadcrumbHome])} />
       <SiteHeader />
 
       <main className="overflow-x-hidden">
@@ -180,7 +186,7 @@ export default function Home() {
               <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl">
                 <Image
                   src="/images/andreas-hero.jpeg"
-                  alt="Andreas Schoenherr — endurance coach, TriDream Coaching"
+                  alt="Portrait of Andreas Schoenherr, Swiss Triathlon certified endurance coach and founder of TriDream Coaching"
                   fill
                   priority
                   quality={85}
