@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
+import {
+  SITE_URL,
+  sharedOpenGraph,
+  sharedTwitter,
+} from "./lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -8,9 +13,9 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "TriDream Coaching — Train Smart. Not Hard.",
-  description:
-    "TriDream Coaching by Andreas Schoenherr. Premium triathlon and endurance coaching. Train Smart. Not Hard.",
+  metadataBase: new URL(SITE_URL),
+  openGraph: sharedOpenGraph,
+  twitter: sharedTwitter,
 };
 
 export default function RootLayout({

@@ -1,6 +1,15 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { SiteFooter } from "./components/SiteFooter";
 import { SiteHeader } from "./components/SiteHeader";
+import { createPageMetadata } from "./lib/site";
+
+export const metadata: Metadata = createPageMetadata({
+  title: "TriDream Coaching | Premium Triathlon Coaching | Andreas Schoenherr",
+  description:
+    "Premium triathlon and endurance coaching by Swiss Triathlon Certified Coach Andreas Schoenherr. Train Smart. Not Hard.",
+  path: "/",
+});
 
 const INTRO_CALL_URL =
   "https://predictivefitness.pipedrive.com/scheduler/drBkYjfDk/coaching-call-for-my-premium-athletes";

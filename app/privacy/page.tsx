@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import { LegalSection } from "../components/LegalSection";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteHeader } from "../components/SiteHeader";
+import { createPageMetadata } from "../lib/site";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy — TriDream Coaching",
+export const metadata: Metadata = createPageMetadata({
+  title: "Privacy Policy | TriDream Coaching",
   description: "Privacy policy for TriDream Coaching.",
-};
+  path: "/privacy",
+});
 
 export default function PrivacyPage() {
   return (
