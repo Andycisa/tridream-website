@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { SiteFooter } from "./components/SiteFooter";
+import { SiteHeader } from "./components/SiteHeader";
 
 const INTRO_CALL_URL =
   "https://predictivefitness.pipedrive.com/scheduler/drBkYjfDk/coaching-call-for-my-premium-athletes";
@@ -144,20 +146,7 @@ function CoachingOptionCard({
 export default function Home() {
   return (
     <>
-      {/* Header */}
-      <header className="absolute inset-x-0 top-0 z-50">
-        <div className="mx-auto flex max-w-7xl items-center px-6 py-6 md:px-12 md:py-8">
-          <Image
-            src="/images/logos/tridream-logo.jpg"
-            alt="TriDream Coaching"
-            width={150}
-            height={100}
-            priority
-            sizes="(min-width: 768px) 150px, 120px"
-            className="h-auto w-[120px] md:w-[150px]"
-          />
-        </div>
-      </header>
+      <SiteHeader />
 
       <main>
         {/* Hero */}
@@ -185,7 +174,17 @@ export default function Home() {
                 this sport every day.
               </p>
 
-              <div className="mt-12">
+              <div className="mt-8 max-w-md">
+                <p className="text-sm font-medium text-muted">
+                  Andreas Schoenherr
+                </p>
+                <p className="mt-1 text-sm font-medium text-muted">
+                  Swiss Triathlon Certified Coach • TriDot Coach Coordinator
+                  DACH
+                </p>
+              </div>
+
+              <div className="mt-8">
                 <CtaButton href={INTRO_CALL_URL}>
                   Book your free consultation
                 </CtaButton>
@@ -196,7 +195,7 @@ export default function Home() {
               <div className="relative aspect-[3/4] w-full max-w-md overflow-hidden rounded-2xl lg:max-w-none">
                 <Image
                   src="/images/andreas-hero.jpeg"
-                  alt="Andreas Schönherr — endurance coach, TriDream Coaching"
+                  alt="Andreas Schoenherr — endurance coach, TriDream Coaching"
                   fill
                   priority
                   quality={85}
@@ -246,7 +245,7 @@ export default function Home() {
               <div className="relative aspect-[3/4] w-full max-w-md overflow-hidden rounded-2xl lg:max-w-none">
                 <Image
                   src="/images/portraits/andreas-kona.jpg"
-                  alt="Andreas Schönherr crossing the finish line at the Ironman World Championship in Kona"
+                  alt="Andreas Schoenherr crossing the finish line at the Ironman World Championship in Kona"
                   fill
                   quality={85}
                   sizes="(min-width: 1024px) 45vw, (min-width: 768px) 50vw, 100vw"
@@ -458,20 +457,7 @@ export default function Home() {
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="border-t border-border">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 py-10 text-sm text-muted md:flex-row md:px-12">
-          <span className="font-medium text-foreground">TriDream Coaching</span>
-          <nav className="flex gap-8">
-            <a href="#" className="transition-colors hover:text-foreground">
-              Impressum
-            </a>
-            <a href="#" className="transition-colors hover:text-foreground">
-              Datenschutz
-            </a>
-          </nav>
-        </div>
-      </footer>
+      <SiteFooter />
     </>
   );
 }
