@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import {
+  BookingButton,
+  BookingProvider,
+} from "./components/BookingProvider";
 import { SiteFooter } from "./components/SiteFooter";
 import { SiteHeader } from "./components/SiteHeader";
+import { BOOKING_URLS } from "./lib/booking";
 import { createPageMetadata } from "./lib/site";
 
 export const metadata: Metadata = createPageMetadata({
@@ -11,36 +16,15 @@ export const metadata: Metadata = createPageMetadata({
   path: "/",
 });
 
-const INTRO_CALL_URL =
-  "https://predictivefitness.pipedrive.com/scheduler/drBkYjfDk/coaching-call-for-my-premium-athletes";
-const PREMIUM_COACHING_URL = INTRO_CALL_URL;
+const INTRO_CALL_URL = BOOKING_URLS.intro;
+const PREMIUM_COACHING_URL = BOOKING_URLS.intro;
+const COACH_DISCOVERY_CALL_URL = BOOKING_URLS.discovery;
 const TRIDOT_URL =
   "https://app.tridot.com/onboard/sign-up/andreasschoenherr";
 const RUNDOT_URL =
   "https://app.rundot.com/onboard/sign-up/andreasschoenherr";
 const GOOGLE_REVIEWS_URL =
   "https://www.google.com/search?client=safari&hs=3JVV&sca_esv=9c297ecd27ddd5cd&cs=0&hl=de-AT&biw=1501&bih=841&si=APenkKm7iecQ4G6P-TsbSMFKIQtv3EFIqRAFw-i8uEbk55Z-_0sPBgz4-nyrgwzJ75Z9BpFPoIH-Ey50eIIpFjZWzJWu3gDUe3i3YkB8BZu3LbRkklR9vuYmJfn5qutOs5_QjX5SkXh3hI2F-tGYh9vMNdtMjHsA0g%3D%3D&q=TriDreamCoaching+Rezensionen&sa=X&ved=2ahUKEwjDyciTv66VAxUDSPEDHX4qEjYQ0bkNegQIKRAF";
-const COACH_DISCOVERY_CALL_URL =
-  "https://predictivefitness.pipedrive.com/scheduler/BpklX3fa/initial-connect-call";
-
-function CtaButton({
-  children,
-  href = INTRO_CALL_URL,
-  className = "",
-}: {
-  children: React.ReactNode;
-  href?: string;
-  className?: string;
-}) {
-  return (
-    <a
-      href={href}
-      className={`inline-flex items-center justify-center rounded-full bg-accent px-7 py-3.5 text-sm font-medium text-white transition-colors hover:bg-accent-hover ${className}`}
-    >
-      {children}
-    </a>
-  );
-}
 
 function OutlineButton({
   children,
@@ -100,6 +84,7 @@ function CoachingOptionCard({
   subtitle,
   items,
   buttonLabel,
+  bookingUrl,
   href,
   primary = false,
 }: {
@@ -108,7 +93,8 @@ function CoachingOptionCard({
   subtitle: string;
   items: string[];
   buttonLabel: string;
-  href: string;
+  bookingUrl?: string;
+  href?: string;
   primary?: boolean;
 }) {
   return (
@@ -142,11 +128,11 @@ function CoachingOptionCard({
         ))}
       </ul>
       <div className={`mt-10 ${primary ? "" : "w-full sm:mx-auto sm:w-auto"}`}>
-        {primary ? (
-          <CtaButton href={href}>{buttonLabel}</CtaButton>
-        ) : (
+        {primary && bookingUrl ? (
+          <BookingButton url={bookingUrl}>{buttonLabel}</BookingButton>
+        ) : href ? (
           <OutlineButton href={href}>{buttonLabel}</OutlineButton>
-        )}
+        ) : null}
       </div>
     </div>
   );
@@ -154,10 +140,10 @@ function CoachingOptionCard({
 
 export default function Home() {
   return (
-    <>
+    <BookingProvider>
       <SiteHeader />
 
-      <main>
+      <main className="overflow-x-hidden">
         {/* Hero */}
         <section className="min-h-screen">
           <div className="mx-auto flex max-w-7xl flex-col px-6 pt-28 pb-20 md:px-12 md:pt-36 md:pb-28 lg:min-h-screen lg:flex-row lg:items-center lg:gap-16 lg:pt-0 lg:pb-0">
@@ -183,25 +169,15 @@ export default function Home() {
                 this sport every day.
               </p>
 
-              <div className="mt-8 max-w-md">
-                <p className="text-sm font-medium text-muted">
-                  Andreas Schoenherr
-                </p>
-                <p className="mt-1 text-sm font-medium text-muted">
-                  Swiss Triathlon Certified Coach • TriDot Coach Coordinator
-                  DACH
-                </p>
-              </div>
-
               <div className="mt-8">
-                <CtaButton href={INTRO_CALL_URL}>
+                <BookingButton url={INTRO_CALL_URL}>
                   Book your free consultation
-                </CtaButton>
+                </BookingButton>
               </div>
             </div>
 
-            <div className="mt-16 lg:mt-0 lg:w-[45%] lg:shrink-0">
-              <div className="relative aspect-[3/4] w-full max-w-md overflow-hidden rounded-2xl lg:max-w-none">
+            <div className="mx-auto mt-16 w-full max-w-md lg:mt-0 lg:w-[45%] lg:max-w-none lg:shrink-0">
+              <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl">
                 <Image
                   src="/images/andreas-hero.jpeg"
                   alt="Andreas Schoenherr — endurance coach, TriDream Coaching"
@@ -212,6 +188,21 @@ export default function Home() {
                   className="object-cover object-[88%_32%]"
                 />
               </div>
+              <div className="mt-6 text-center">
+                <p className="text-sm font-semibold text-foreground">
+                  Andreas Schoenherr
+                </p>
+                <p className="mt-1 text-sm text-muted">
+                  Swiss Triathlon Certified Coach
+                </p>
+                <p className="text-sm text-muted">
+                  TriDot Coach Coordinator DACH
+                </p>
+              </div>
+              <div
+                className="mx-auto mt-6 h-px w-12 bg-border"
+                aria-hidden="true"
+              />
             </div>
           </div>
         </section>
@@ -325,7 +316,7 @@ export default function Home() {
                 "Coaching that adapts to your life, your goals and your performance",
               ]}
               buttonLabel="Apply for Coaching"
-              href={PREMIUM_COACHING_URL}
+              bookingUrl={PREMIUM_COACHING_URL}
             />
 
             <div className="mx-auto mt-24 max-w-3xl border-t border-border pt-20">
@@ -371,9 +362,9 @@ export default function Home() {
                 your ambitions.
               </p>
               <div className="mt-8">
-                <CtaButton href={INTRO_CALL_URL}>
+                <BookingButton url={INTRO_CALL_URL}>
                   Book a free introductory call
-                </CtaButton>
+                </BookingButton>
               </div>
             </div>
 
@@ -393,7 +384,7 @@ export default function Home() {
                 </p>
               </div>
               <div className="mt-8">
-                <CtaButton href={INTRO_CALL_URL}>Talk to Andreas</CtaButton>
+                <BookingButton url={INTRO_CALL_URL}>Talk to Andreas</BookingButton>
               </div>
             </div>
 
@@ -418,9 +409,9 @@ export default function Home() {
                 </p>
               </div>
               <div className="mt-8">
-                <CtaButton href={COACH_DISCOVERY_CALL_URL}>
+                <BookingButton url={COACH_DISCOVERY_CALL_URL}>
                   Book a Coach Discovery Call
-                </CtaButton>
+                </BookingButton>
               </div>
             </div>
           </div>
@@ -467,6 +458,6 @@ export default function Home() {
       </main>
 
       <SiteFooter />
-    </>
+    </BookingProvider>
   );
 }
