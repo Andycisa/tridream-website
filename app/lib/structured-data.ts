@@ -3,6 +3,7 @@ import { SITE_URL, siteConfig } from "./site";
 export const entityIds = {
   website: `${SITE_URL}/#website`,
   organization: `${SITE_URL}/#organization`,
+  localBusiness: `${SITE_URL}/#localbusiness`,
   person: `${SITE_URL}/#person`,
 } as const;
 
@@ -61,20 +62,34 @@ export function createSiteStructuredData() {
         description: siteConfig.description,
         inLanguage: "en-CH",
         publisher: { "@id": entityIds.organization },
+        about: { "@id": entityIds.organization },
       },
       {
-        "@type": ["SportsOrganization", "Organization", "LocalBusiness"],
+        "@type": "Organization",
         "@id": entityIds.organization,
         name: businessInfo.organizationName,
         url: `${SITE_URL}/`,
         slogan: businessInfo.slogan,
         description: siteConfig.description,
         email: businessInfo.email,
-        image: [logoUrl, heroImageUrl],
-        logo: logoUrl,
-        address: postalAddress,
+        logo: {
+          "@type": "ImageObject",
+          url: logoUrl,
+        },
+        image: logoUrl,
         founder: { "@id": entityIds.person },
         employee: { "@id": entityIds.person },
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": entityIds.localBusiness,
+        name: businessInfo.organizationName,
+        url: `${SITE_URL}/`,
+        description: siteConfig.description,
+        email: businessInfo.email,
+        image: [logoUrl, heroImageUrl],
+        address: postalAddress,
+        parentOrganization: { "@id": entityIds.organization },
       },
       {
         "@type": "Person",
