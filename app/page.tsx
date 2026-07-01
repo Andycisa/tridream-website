@@ -29,7 +29,22 @@ const TRIDOT_URL =
 const RUNDOT_URL =
   "https://app.rundot.com/onboard/sign-up/andreasschoenherr";
 const GOOGLE_REVIEWS_URL =
-  "https://www.google.com/search?client=safari&hs=3JVV&sca_esv=9c297ecd27ddd5cd&cs=0&hl=de-AT&biw=1501&bih=841&si=APenkKm7iecQ4G6P-TsbSMFKIQtv3EFIqRAFw-i8uEbk55Z-_0sPBgz4-nyrgwzJ75Z9BpFPoIH-Ey50eIIpFjZWzJWu3gDUe3i3YkB8BZu3LbRkklR9vuYmJfn5qutOs5_QjX5SkXh3hI2F-tGYh9vMNdtMjHsA0g%3D%3D&q=TriDreamCoaching+Rezensionen&sa=X&ved=2ahUKEwjDyciTv66VAxUDSPEDHX4qEjYQ0bkNegQIKRAF";
+  "https://www.google.com/search?client=safari&sca_esv=9c297ecd27ddd5cd&q=TriDreamCoaching+Rezensionen";
+
+const GOOGLE_REVIEWS = [
+  {
+    name: "Scott Tindal",
+    text: "Responsive and knowledgeable. I achieved a PR in Cairns 70.3 and Sydney Marathon. I would recommend Andreas as a coach to anyone.",
+  },
+  {
+    name: "Yannick Hefti",
+    text: "I started as a complete beginner and achieved far more than I ever thought possible.",
+  },
+  {
+    name: "Sacha Ludwig",
+    text: "From zero to Ironman in one year. Passionate, dedicated and tailored coaching.",
+  },
+] as const;
 
 function OutlineButton({
   children,
@@ -55,6 +70,29 @@ function OutlineButton({
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <p className="text-sm font-medium text-muted">{children}</p>
+  );
+}
+
+function ReviewCard({
+  name,
+  text,
+}: {
+  name: string;
+  text: string;
+}) {
+  return (
+    <article className="flex h-full flex-col rounded-2xl border border-border px-8 py-10 md:px-10">
+      <p className="font-semibold tracking-tight text-foreground">{name}</p>
+      <p
+        className="mt-3 text-sm tracking-wide text-[#c8920a]"
+        aria-label="5 out of 5 stars"
+      >
+        ★★★★★
+      </p>
+      <blockquote className="mt-6 flex-1 text-base leading-relaxed text-muted">
+        &ldquo;{text}&rdquo;
+      </blockquote>
+    </article>
   );
 }
 
@@ -423,26 +461,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Google reviews */}
-        <section className="border-t border-border">
-          <div className="mx-auto max-w-7xl px-6 py-28 md:px-12 md:py-40">
-            <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
-              Trusted by athletes.
-            </h2>
-            <p className="mt-6 text-base font-medium tracking-tight">
-              ★★★★★ 5.0 Google Rating
-            </p>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-muted md:text-lg">
-              Read what athletes say about their coaching experience.
-            </p>
-            <div className="mt-10">
-              <OutlineButton href={GOOGLE_REVIEWS_URL}>
-                Read Google Reviews
-              </OutlineButton>
-            </div>
-          </div>
-        </section>
-
         {/* About technology */}
         <section className="border-t border-border bg-foreground text-white">
           <div className="mx-auto max-w-7xl px-6 py-28 md:px-12 md:py-40">
@@ -458,6 +476,35 @@ export default function Home() {
               </p>
               <p>Experience helps knowing when to adapt the plan.</p>
               <p>That&apos;s what coaching is about.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Google reviews */}
+        <section className="border-t border-border">
+          <div className="mx-auto max-w-7xl px-6 py-28 md:px-12 md:py-40">
+            <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
+              Trusted by athletes
+            </h2>
+            <p className="mt-6 text-base font-medium tracking-tight">
+              ★★★★★ 5.0 Google Rating
+            </p>
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-muted md:text-lg">
+              Real athletes. Real results. Real coaching.
+            </p>
+            <div className="mt-16 grid gap-8 md:grid-cols-3 md:gap-6">
+              {GOOGLE_REVIEWS.map((review) => (
+                <ReviewCard
+                  key={review.name}
+                  name={review.name}
+                  text={review.text}
+                />
+              ))}
+            </div>
+            <div className="mt-16 flex justify-center">
+              <OutlineButton href={GOOGLE_REVIEWS_URL}>
+                Read all Google Reviews →
+              </OutlineButton>
             </div>
           </div>
         </section>
