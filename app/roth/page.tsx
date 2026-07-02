@@ -138,28 +138,44 @@ export default function RothPage() {
 
       <main lang="de" className="overflow-x-hidden">
         <section className="border-b border-border">
-          <div className="mx-auto max-w-7xl px-6 pt-28 pb-20 md:px-12 md:pt-36 md:pb-28">
-            <div className="max-w-3xl">
-              <h1 className="text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
-                Schön, dass wir uns in Roth kennengelernt haben.
-              </h1>
-              <p className="mt-8 text-lg leading-relaxed text-muted md:text-xl">
-                Vielleicht haben wir uns an der Strecke, im Zielbereich oder bei
-                einem Kaffee getroffen.
-              </p>
-              <p className="mt-6 text-base leading-relaxed text-muted md:text-lg">
-                Wenn Du Dein nächstes sportliches Ziel mit persönlicher
-                Betreuung, modernster Trainingsmethodik und einem erfahrenen
-                Coach erreichen möchtest, freue ich mich darauf, Dich
-                kennenzulernen.
-              </p>
-              <p className="mt-8 inline-flex rounded-full border border-border px-4 py-2 text-sm font-medium text-foreground">
-                🏅 2× Challenge Roth Finisher (PB: 9:40)
-              </p>
-              <div className="mt-8">
-                <BookingButton url={INTRO_CALL_URL}>
-                  Kostenloses Kennenlerngespräch buchen
-                </BookingButton>
+          <div className="mx-auto flex max-w-7xl flex-col px-6 pt-28 pb-20 md:px-12 md:pt-36 md:pb-28 lg:flex-row lg:items-center lg:gap-16">
+            <div className="flex flex-col justify-center lg:w-[55%] lg:shrink-0">
+              <div className="max-w-3xl">
+                <h1 className="text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
+                  Schön, dass wir uns in Roth kennengelernt haben.
+                </h1>
+                <p className="mt-8 text-lg leading-relaxed text-muted md:text-xl">
+                  Vielleicht haben wir uns an der Strecke, im Zielbereich oder bei
+                  einem Kaffee getroffen.
+                </p>
+                <p className="mt-6 text-base leading-relaxed text-muted md:text-lg">
+                  Wenn Du Dein nächstes sportliches Ziel mit persönlicher
+                  Betreuung, modernster Trainingsmethodik und einem erfahrenen
+                  Coach erreichen möchtest, freue ich mich darauf, Dich
+                  kennenzulernen.
+                </p>
+                <p className="mt-8 inline-flex rounded-full border border-border px-4 py-2 text-sm font-medium text-foreground">
+                  🏅 2× Challenge Roth Finisher (PB: 9:40)
+                </p>
+                <div className="mt-8">
+                  <BookingButton url={INTRO_CALL_URL}>
+                    Kostenloses Kennenlerngespräch buchen
+                  </BookingButton>
+                </div>
+              </div>
+            </div>
+
+            <div className="mx-auto mt-16 w-full max-w-md lg:mt-0 lg:w-[45%] lg:max-w-none lg:shrink-0">
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl md:aspect-[3/2]">
+                <Image
+                  src="/images/portraits/andreas-roth.jpg"
+                  alt="Andreas Schoenherr with an athlete after finishing Challenge Roth"
+                  fill
+                  priority
+                  quality={85}
+                  sizes="(min-width: 1024px) 45vw, (min-width: 768px) 50vw, 100vw"
+                  className="object-cover object-[center_35%]"
+                />
               </div>
             </div>
           </div>
