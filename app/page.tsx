@@ -34,14 +34,17 @@ const GOOGLE_REVIEWS_URL =
 const GOOGLE_REVIEWS = [
   {
     name: "Scott Tindal",
+    role: "Founder and CEO, Fuelin",
     text: "Responsive and knowledgeable. I achieved a PR in Cairns 70.3 and Sydney Marathon. I would recommend Andreas as a coach to anyone.",
   },
   {
-    name: "Yannick Hefti",
-    text: "I started as a complete beginner and achieved far more than I ever thought possible.",
+    name: "Ines Pereira",
+    role: "Student",
+    text: "Andreas is incredibly knowledgeable, supportive and motivating. His excitement and curiosity are truly contagious.",
   },
   {
     name: "Sacha Ludwig",
+    role: "Architect",
     text: "From zero to Ironman in one year. Passionate, dedicated and tailored coaching.",
   },
 ] as const;
@@ -102,14 +105,17 @@ function GoogleIcon() {
 
 function ReviewCard({
   name,
+  role,
   text,
 }: {
   name: string;
+  role?: string;
   text: string;
 }) {
   return (
     <article className="flex h-full flex-col rounded-2xl border border-border bg-background px-8 py-10 shadow-sm md:px-10">
       <p className="font-semibold tracking-tight text-foreground">{name}</p>
+      {role ? <p className="mt-1 text-sm text-muted">{role}</p> : null}
       <p
         className="mt-3 text-sm tracking-wide text-[#c8920a]"
         aria-label="5 out of 5 stars"
@@ -296,6 +302,7 @@ export default function Home() {
                 <ReviewCard
                   key={review.name}
                   name={review.name}
+                  role={review.role}
                   text={review.text}
                 />
               ))}
@@ -403,7 +410,7 @@ export default function Home() {
             <CoachingOptionCard
               primary
               title="Premium Coaching"
-              price="From CHF 300/month"
+              price="CHF 150–300/month"
               subtitle="Everything you need to become the best athlete you can be."
               items={[
                 "Highly individualized training plan",
@@ -425,7 +432,7 @@ export default function Home() {
                 <CoachingOptionCard
                   title="Triathlon Coaching"
                   price="From CHF 15/month"
-                  subtitle="Ideal for athletes who enjoy training independently while benefiting from my experience whenever needed."
+                  subtitle="Individualized triathlon plan"
                   items={[
                     "Highly individualized training plan",
                     "Personal onboarding",
@@ -439,7 +446,7 @@ export default function Home() {
                 <CoachingOptionCard
                   title="Run Coaching"
                   price="From CHF 15/month"
-                  subtitle="Ideal for runners who enjoy training independently while benefiting from my experience whenever needed."
+                  subtitle="Individualized running plan"
                   items={[
                     "Highly individualized training plan",
                     "Personal onboarding",
