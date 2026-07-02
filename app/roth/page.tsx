@@ -104,10 +104,12 @@ function CoachingCard({
   title,
   price,
   items,
+  signUpLink,
 }: {
   title: string;
   price: string;
   items: string[];
+  signUpLink?: { label: string; href: string };
 }) {
   return (
     <article className="rounded-2xl border border-border px-8 py-10 md:px-10">
@@ -121,6 +123,16 @@ function CoachingCard({
           </li>
         ))}
       </ul>
+      {signUpLink ? (
+        <a
+          href={signUpLink.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-8 inline-block text-sm font-medium text-accent transition-colors hover:text-accent-hover"
+        >
+          {signUpLink.label}
+        </a>
+      ) : null}
     </article>
   );
 }
@@ -272,6 +284,10 @@ export default function RothPage() {
                   "Individualisierter Triathlon-Trainingsplan",
                   "TriDot Plattform in mehreren Sprachen verfügbar",
                 ]}
+                signUpLink={{
+                  label: "Start your personalized TriDot plan →",
+                  href: "https://app.tridot.com/onboard/sign-up/andreasschoenherr",
+                }}
               />
               <CoachingCard
                 title="Run Coaching"
@@ -280,6 +296,10 @@ export default function RothPage() {
                   "Individualisierter Lauftrainingsplan",
                   "RunDot Plattform in mehreren Sprachen verfügbar",
                 ]}
+                signUpLink={{
+                  label: "Start your personalized RunDot plan →",
+                  href: "https://run.dot.app/onboard/sign-up/andreasschoenherr",
+                }}
               />
             </div>
           </div>
