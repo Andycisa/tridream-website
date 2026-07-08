@@ -372,11 +372,11 @@ export default function Home() {
               <BulletCard
                 title="Experience"
                 items={[
-                  "3× Ironman World Championship (Kona) Qualifier",
-                  "2× Ironman 70.3 World Championship Qualifier",
-                  "Multiple Ironman & 70.3 Finishes",
-                  "Multiple Marathon & Ultra Marathon Finishes",
-                  "Over 20 Years of Endurance Racing",
+                  "3× Ironman World Championship (Kona) Finisher",
+                  "2× Ironman 70.3 World Championship Finisher",
+                  "30+ Ironman & Ironman 70.3 Finishes",
+                  "50+ Marathon & Ultramarathon Finishes",
+                  "20+ Years of Endurance Racing",
                 ]}
               />
               <BulletCard
