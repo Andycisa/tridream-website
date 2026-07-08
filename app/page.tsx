@@ -166,7 +166,7 @@ function CoachingOptionCard({
 }: {
   title: string;
   price: string;
-  subtitle: string;
+  subtitle?: string;
   items: string[];
   buttonLabel: string;
   bookingUrl?: string;
@@ -187,9 +187,11 @@ function CoachingOptionCard({
       <p className="mt-4 text-sm font-medium tracking-wide text-muted">
         {price}
       </p>
-      <p className="mt-6 text-base leading-relaxed text-muted md:text-lg">
-        {subtitle}
-      </p>
+      {subtitle ? (
+        <p className="mt-6 text-base leading-relaxed text-muted md:text-lg">
+          {subtitle}
+        </p>
+      ) : null}
       <ul
         className={`mt-8 space-y-3 text-left ${primary ? "mx-auto max-w-md" : "w-full"}`}
       >
@@ -430,9 +432,8 @@ export default function Home() {
             <div className="mx-auto mt-24 max-w-3xl border-t border-border pt-20">
               <div className="grid gap-16 sm:grid-cols-2 sm:gap-12">
                 <CoachingOptionCard
-                  title="Triathlon Coaching"
+                  title="Individualized Triathlon Plan"
                   price="From CHF 15/month"
-                  subtitle="Individualized triathlon plan"
                   items={[
                     "Highly individualized training plan",
                     "Personal onboarding",
@@ -444,9 +445,8 @@ export default function Home() {
                   href={TRIDOT_URL}
                 />
                 <CoachingOptionCard
-                  title="Run Coaching"
+                  title="Individualized Running Plan"
                   price="From CHF 15/month"
-                  subtitle="Individualized running plan"
                   items={[
                     "Highly individualized training plan",
                     "Personal onboarding",
