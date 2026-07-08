@@ -46,17 +46,17 @@ const ALLGAEU_REVIEWS = [
   {
     name: "Scott Tindal",
     role: "Founder and CEO, Fuelin",
-    text: "Responsive and knowledgeable. I achieved a PR in Cairns 70.3 and Sydney Marathon. I would recommend Andreas as a coach to anyone.",
+    text: "Andreas war ein großartiger Coach. Er hat das TriDot-System perfekt an meine Ziele, meinen Alltag und meinen Zeitplan angepasst. Er war jederzeit erreichbar und hat mich hervorragend unterstützt. Dank seines Coachings konnte ich sowohl beim Ironman 70.3 Cairns als auch beim Sydney Marathon persönliche Bestzeiten erreichen.",
   },
   {
     name: "Ines Pereira",
     role: "Student",
-    text: "Andreas is incredibly knowledgeable, supportive and motivating. His excitement and curiosity are truly contagious.",
+    text: "Andreas ist unglaublich kompetent, motivierend und jederzeit unterstützend. Seine Begeisterung für den Ausdauersport ist ansteckend. Er schafft eine Trainingsatmosphäre, die gleichzeitig fordert, motiviert und richtig Spaß macht.",
   },
   {
     name: "Sacha Ludwig",
     role: "Architect",
-    text: "From zero to Ironman in one year. Passionate, dedicated and tailored coaching.",
+    text: "Von null zum Ironman in nur einem Jahr – dank Andreas. Er nimmt sich Zeit, hört zu und stellt sicher, dass alles optimal läuft. Mit seiner Leidenschaft, seinem Engagement und seinem individuellen Coaching kann ich ihn uneingeschränkt empfehlen.",
   },
 ] as const;
 
