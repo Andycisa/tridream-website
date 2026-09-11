@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import {
   BookingButton,
   BookingProvider,
@@ -256,7 +257,11 @@ export default function Home() {
             </div>
 
             <div className="mx-auto mt-16 w-full max-w-md lg:mt-0 lg:w-[45%] lg:max-w-none lg:shrink-0">
-              <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl">
+              <Link
+                href="/about"
+                aria-label="About Andreas"
+                className="relative block aspect-[3/4] w-full cursor-pointer overflow-hidden rounded-2xl"
+              >
                 <Image
                   src="/images/andreas-hero.jpeg"
                   alt="Portrait of Andreas Schoenherr, Swiss Triathlon certified endurance coach and founder of TriDream Coaching"
@@ -266,7 +271,7 @@ export default function Home() {
                   sizes="(min-width: 1024px) 45vw, (min-width: 768px) 50vw, 100vw"
                   className="object-cover object-[88%_32%]"
                 />
-              </div>
+              </Link>
               <div className="mt-6 text-center">
                 <p className="text-sm font-semibold text-foreground">
                   Andreas Schoenherr
