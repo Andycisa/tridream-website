@@ -118,3 +118,23 @@ export function createBreadcrumbStructuredData(items: BreadcrumbItem[]) {
     })),
   };
 }
+
+export function createAboutPageStructuredData({
+  title,
+  description,
+}: {
+  title: string;
+  description: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "@id": `${SITE_URL}/about#webpage`,
+    url: `${SITE_URL}/about`,
+    name: title,
+    description,
+    isPartOf: { "@id": entityIds.website },
+    about: { "@id": entityIds.person },
+    mainEntity: { "@id": entityIds.person },
+  };
+}

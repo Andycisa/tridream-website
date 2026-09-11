@@ -13,7 +13,7 @@ export function SiteFooter() {
             <p>Founded by</p>
             <p className="text-foreground">Andreas Schoenherr</p>
           </div>
-          <p>Swiss Triathlon Certified Coach</p>
+          <p>Swiss Triathlon Trainer B</p>
           <p>TriDot Coach Coordinator DACH</p>
           <p>Böndlerstrasse 3A</p>
           <p>8803 Rüschlikon</p>
