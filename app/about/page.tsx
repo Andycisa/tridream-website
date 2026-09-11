@@ -9,6 +9,7 @@ import { JsonLd } from "../components/JsonLd";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteHeader } from "../components/SiteHeader";
 import { BOOKING_URLS } from "../lib/booking";
+import { GOOGLE_REVIEWS, GOOGLE_REVIEWS_URL } from "../lib/reviews";
 import {
   breadcrumbHome,
   createAboutPageStructuredData,
@@ -45,8 +46,7 @@ export const metadata: Metadata = {
 /**
  * Certification visuals:
  * - Swiss Triathlon / IRONMAN U / CORE: supplied badge assets under /images/portraits/
- * - ESCI: logo cropped from the supplied certificate header for a clean row
- *   (full certificate is not shown).
+ * - ESCI: Grant ESCI Certified Coach Badge under /images/logos/certifications/
  */
 const CERTIFICATIONS = [
   {
@@ -60,12 +60,12 @@ const CERTIFICATIONS = [
     imageSrc: "/images/portraits/IronmanU_Certified_Coach.png",
   },
   {
-    organization: "ESCI",
+    organization: "Endurance Sports Coaching Institute (ESCI)",
     credential: "Certified Coach",
-    imageSrc: "/images/logos/certifications/esci.png",
+    imageSrc: "/images/logos/certifications/Grant ESCI Certified Coach Badge.png",
   },
   {
-    organization: "CORE",
+    organization: "CORE — Heat Training",
     credential: "Certified Coach",
     imageSrc: "/images/portraits/Core_CoachesBadge_White-1.png",
   },
@@ -349,55 +349,89 @@ export default function AboutPage() {
         {/* More than a training plan */}
         <section className="border-t border-border">
           <div className="mx-auto max-w-7xl px-6 py-28 md:px-12 md:py-40">
-            <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
-              More than a training plan
-            </h2>
-            <div className="mt-16 grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] lg:items-start lg:gap-16">
-              <div className="space-y-5 text-base leading-relaxed text-muted md:text-lg">
-                <p>
-                  With my Premium athletes, I support all four areas throughout
-                  the entire journey.
-                </p>
-                <p>
-                  Sometimes that means adjusting tomorrow&apos;s training.
-                  Sometimes it is reviewing race nutrition, discussing
-                  equipment, analysing a session, preparing a race strategy or
-                  simply talking through a difficult week.
-                </p>
-                <p>
-                  Support happens where it makes sense: through TriDot or
-                  RunDot, WhatsApp, calls and direct feedback. Coaching
-                  shouldn&apos;t have to wait for the next scheduled call.
-                </p>
-                <p className="font-medium text-foreground">
-                  Not every athlete needs this level of support.
-                </p>
-                <p>
-                  For athletes who prefer to train independently or are looking
-                  for a more affordable option, I also offer individualized
-                  TriDot and RunDot training plans without full Premium
-                  Coaching.
+            <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] lg:items-center lg:gap-16">
+              <div>
+                <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
+                  More than a training plan
+                </h2>
+                <div className="mt-10 space-y-5 text-base leading-relaxed text-muted md:text-lg">
+                  <p>
+                    With my Premium athletes, I support all four areas throughout
+                    the entire journey.
+                  </p>
+                  <p>
+                    Sometimes that means adjusting tomorrow&apos;s training.
+                    Sometimes it is reviewing race nutrition, discussing
+                    equipment, analysing a session, preparing a race strategy or
+                    simply talking through a difficult week.
+                  </p>
+                  <p>
+                    Support happens where it makes sense: through TriDot or
+                    RunDot, WhatsApp, calls and direct feedback. Coaching
+                    shouldn&apos;t have to wait for the next scheduled call.
+                  </p>
+                  <p className="font-medium text-foreground">
+                    Not every athlete needs this level of support.
+                  </p>
+                  <p>
+                    For athletes who prefer to train independently or are looking
+                    for a more affordable option, I also offer individualized
+                    TriDot and RunDot training plans without full Premium
+                    Coaching.
+                  </p>
+                </div>
+                <p className="mt-12 text-xl font-semibold leading-snug tracking-tight text-foreground md:mt-14 md:text-2xl md:leading-snug">
+                  A training plan tells you what to do.
+                  <br />
+                  Coaching helps you make it work in real life.
                 </p>
               </div>
-              <p className="text-xl font-semibold leading-snug tracking-tight text-foreground md:text-2xl md:leading-snug">
-                A training plan tells you what to do.
-                <br />
-                Coaching helps you make it work in real life.
-              </p>
-            </div>
 
-            <div className="mx-auto mt-20 w-full max-w-4xl md:mt-24">
-              <div className="relative aspect-[3/2] w-full overflow-hidden rounded-2xl">
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl">
                 <Image
                   src="/images/portraits/Lucy_Finish_Roth.jpg"
                   alt="Andreas Schoenherr with an athlete after a successful race finish"
                   fill
                   quality={85}
-                  sizes="(min-width: 1024px) 56rem, (min-width: 768px) 80vw, 100vw"
+                  sizes="(min-width: 1024px) 45vw, 100vw"
                   className="object-cover object-center"
                 />
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* What others say */}
+        <section className="border-t border-border">
+          <div className="mx-auto max-w-7xl px-6 py-28 md:px-12 md:py-40">
+            <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
+              What others say
+            </h2>
+            <div className="mt-16 grid gap-14 md:grid-cols-3 md:gap-12">
+              {GOOGLE_REVIEWS.map((review) => (
+                <blockquote key={review.name} className="border-t border-border pt-8">
+                  <p className="text-base leading-relaxed text-muted md:text-lg">
+                    &ldquo;{review.text}&rdquo;
+                  </p>
+                  <footer className="mt-8">
+                    <p className="text-sm font-semibold tracking-tight text-foreground">
+                      {review.name}
+                    </p>
+                    <p className="mt-1 text-sm text-muted">{review.role}</p>
+                  </footer>
+                </blockquote>
+              ))}
+            </div>
+            <p className="mt-14">
+              <a
+                href={GOOGLE_REVIEWS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium text-muted transition-colors hover:text-foreground"
+              >
+                More reviews on Google →
+              </a>
+            </p>
           </div>
         </section>
 
@@ -476,8 +510,8 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              <div className="grid gap-6 sm:grid-cols-5 sm:items-end">
-                <div className="relative aspect-[4/5] overflow-hidden rounded-2xl sm:col-span-3">
+              <div className="w-full sm:w-3/5 lg:w-3/5">
+                <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
                   <Image
                     src="/images/portraits/Panel_Discussion_Kristian_Gustav.jpg"
                     alt="Panel discussion at a high-level endurance sport event"
@@ -485,16 +519,6 @@ export default function AboutPage() {
                     quality={85}
                     sizes="(min-width: 1024px) 28vw, (min-width: 640px) 55vw, 100vw"
                     className="object-cover object-center"
-                  />
-                </div>
-                <div className="relative aspect-[4/5] overflow-hidden rounded-2xl sm:col-span-2 sm:mb-10">
-                  <Image
-                    src="/images/portraits/HouseofChampions.jpg"
-                    alt="Inside a professional triathlon house of champions event space"
-                    fill
-                    quality={85}
-                    sizes="(min-width: 1024px) 18vw, (min-width: 640px) 35vw, 100vw"
-                    className="object-cover object-[center_30%]"
                   />
                 </div>
               </div>

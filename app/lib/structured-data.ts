@@ -138,3 +138,25 @@ export function createAboutPageStructuredData({
     mainEntity: { "@id": entityIds.person },
   };
 }
+
+export function createWebPageStructuredData({
+  title,
+  description,
+  path,
+}: {
+  title: string;
+  description: string;
+  path: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${SITE_URL}${path}#webpage`,
+    url: `${SITE_URL}${path}`,
+    name: title,
+    description,
+    isPartOf: { "@id": entityIds.website },
+    about: { "@id": entityIds.person },
+    mainEntity: { "@id": entityIds.person },
+  };
+}

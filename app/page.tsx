@@ -14,6 +14,7 @@ import {
   createBreadcrumbStructuredData,
 } from "./lib/structured-data";
 import { createPageMetadata } from "./lib/site";
+import { GOOGLE_REVIEWS, GOOGLE_REVIEWS_URL } from "./lib/reviews";
 
 export const metadata: Metadata = createPageMetadata({
   title: "TriDream Coaching | Premium Triathlon Coaching | Andreas Schoenherr",
@@ -29,26 +30,6 @@ const TRIDOT_URL =
   "https://app.tridot.com/onboard/sign-up/andreasschoenherr";
 const RUNDOT_URL =
   "https://app.rundot.com/onboard/sign-up/andreasschoenherr";
-const GOOGLE_REVIEWS_URL =
-  "https://www.google.com/search?q=TriDreamCoaching+Rezensionen";
-
-const GOOGLE_REVIEWS = [
-  {
-    name: "Scott Tindal",
-    role: "Founder and CEO, Fuelin",
-    text: "Responsive and knowledgeable. I achieved a PR in Cairns 70.3 and Sydney Marathon. I would recommend Andreas as a coach to anyone.",
-  },
-  {
-    name: "Ines Pereira",
-    role: "Student",
-    text: "Andreas is incredibly knowledgeable, supportive and motivating. His excitement and curiosity are truly contagious.",
-  },
-  {
-    name: "Sacha Ludwig",
-    role: "Architect",
-    text: "From zero to Ironman in one year. Passionate, dedicated and tailored coaching.",
-  },
-] as const;
 
 function OutlineButton({
   children,
