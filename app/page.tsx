@@ -8,6 +8,7 @@ import {
 import { JsonLd } from "./components/JsonLd";
 import { SiteFooter } from "./components/SiteFooter";
 import { SiteHeader } from "./components/SiteHeader";
+import { KonaAnnouncementBar } from "./components/KonaAnnouncementBar";
 import { BOOKING_URLS } from "./lib/booking";
 import {
   breadcrumbHome,
@@ -202,9 +203,11 @@ export default function Home() {
   return (
     <BookingProvider>
       <JsonLd data={createBreadcrumbStructuredData([breadcrumbHome])} />
-      <SiteHeader />
+      <KonaAnnouncementBar />
+      <div className="relative">
+        <SiteHeader />
 
-      <main className="overflow-x-hidden">
+        <main className="overflow-x-hidden">
         {/* Hero */}
         <section className="min-h-screen">
           <div className="mx-auto flex max-w-7xl flex-col px-6 pt-28 pb-20 md:px-12 md:pt-36 md:pb-28 lg:min-h-screen lg:flex-row lg:items-center lg:gap-16 lg:pt-0 lg:pb-0">
@@ -530,6 +533,7 @@ export default function Home() {
           </div>
         </section>
       </main>
+      </div>
 
       <SiteFooter />
     </BookingProvider>
