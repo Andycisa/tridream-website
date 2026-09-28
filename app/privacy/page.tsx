@@ -76,21 +76,12 @@ export default function PrivacyPage() {
             </p>
           </LegalSection>
 
-          <LegalSection title="Pipedrive Scheduling">
+          <LegalSection title="Meeting Scheduling">
             <p>
-              Consultation requests are managed using Pipedrive Scheduling.
-              When you book an appointment, your personal data is processed by
-              Pipedrive on behalf of TriDream Coaching for the purpose of
-              arranging and managing your appointment. Further information is
-              available in the Pipedrive Privacy Policy:{" "}
-              <a
-                href="https://www.pipedrive.com/en/privacy"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-foreground transition-colors hover:text-muted"
-              >
-                https://www.pipedrive.com/en/privacy
-              </a>
+              When you book a coaching or discovery call through this website,
+              you are directed to the TriDot meeting scheduling service. The
+              information you enter there is processed for the purpose of
+              arranging the requested meeting.
             </p>
           </LegalSection>
 

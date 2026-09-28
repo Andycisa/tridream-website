@@ -7,7 +7,6 @@ import {
   useEffect,
   useState,
 } from "react";
-import { getSchedulerEmbedUrl } from "../lib/booking";
 
 type BookingContextValue = {
   openBooking: (url: string) => void;
@@ -35,8 +34,6 @@ function BookingModal({
   url: string;
   onClose: () => void;
 }) {
-  const embedUrl = getSchedulerEmbedUrl(url);
-
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -74,8 +71,8 @@ function BookingModal({
             </button>
           </div>
           <iframe
-            src={embedUrl}
-            title="Pipedrive scheduling"
+            src={url}
+            title="Schedule a call with Andreas"
             className="min-h-0 flex-1 w-full border-0"
             allow="clipboard-write"
           />

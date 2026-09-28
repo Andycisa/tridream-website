@@ -9,7 +9,7 @@ import { JsonLd } from "./components/JsonLd";
 import { SiteFooter } from "./components/SiteFooter";
 import { SiteHeader } from "./components/SiteHeader";
 import { KonaAnnouncementBar } from "./components/KonaAnnouncementBar";
-import { BOOKING_URLS } from "./lib/booking";
+import { COACHING_CALL_URL } from "./lib/booking";
 import {
   breadcrumbHome,
   createBreadcrumbStructuredData,
@@ -24,9 +24,6 @@ export const metadata: Metadata = createPageMetadata({
   path: "/",
 });
 
-const INTRO_CALL_URL = BOOKING_URLS.intro;
-const PREMIUM_COACHING_URL = BOOKING_URLS.intro;
-const COACH_DISCOVERY_CALL_URL = BOOKING_URLS.discovery;
 const TRIDOT_URL =
   "https://app.tridot.com/onboard/sign-up/andreasschoenherr";
 const RUNDOT_URL =
@@ -234,7 +231,7 @@ export default function Home() {
               </p>
 
               <div className="mt-8">
-                <BookingButton url={INTRO_CALL_URL}>
+                <BookingButton url={COACHING_CALL_URL}>
                   Book your free consultation
                 </BookingButton>
               </div>
@@ -415,7 +412,7 @@ export default function Home() {
                 "Coaching that adapts to your life, your goals and your performance",
               ]}
               buttonLabel="Apply for Coaching"
-              bookingUrl={PREMIUM_COACHING_URL}
+              bookingUrl={COACHING_CALL_URL}
             />
 
             <div className="mx-auto mt-24 max-w-3xl border-t border-border pt-20">
@@ -459,7 +456,7 @@ export default function Home() {
                 your ambitions.
               </p>
               <div className="mt-8">
-                <BookingButton url={INTRO_CALL_URL}>
+                <BookingButton url={COACHING_CALL_URL}>
                   Book a free introductory call
                 </BookingButton>
               </div>
@@ -481,7 +478,7 @@ export default function Home() {
                 </p>
               </div>
               <div className="mt-8">
-                <BookingButton url={INTRO_CALL_URL}>Talk to Andreas</BookingButton>
+                <BookingButton url={COACHING_CALL_URL}>Talk to Andreas</BookingButton>
               </div>
             </div>
 
@@ -506,7 +503,7 @@ export default function Home() {
                 </p>
               </div>
               <div className="mt-8">
-                <BookingButton url={COACH_DISCOVERY_CALL_URL}>
+                <BookingButton url={COACHING_CALL_URL}>
                   Book a Coach Discovery Call
                 </BookingButton>
               </div>

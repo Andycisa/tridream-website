@@ -7,14 +7,13 @@ import {
 import { JsonLd } from "../components/JsonLd";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteHeader } from "../components/SiteHeader";
-import { BOOKING_URLS } from "../lib/booking";
+import { COACHING_CALL_URL } from "../lib/booking";
 import {
   breadcrumbHome,
   createBreadcrumbStructuredData,
 } from "../lib/structured-data";
 import { createPageMetadata } from "../lib/site";
 
-const INTRO_CALL_URL = BOOKING_URLS.intro;
 const GOOGLE_REVIEWS_URL = "https://www.google.com/search?q=TriDreamCoaching+Rezensionen";
 
 const pageMetadata = createPageMetadata({
@@ -170,7 +169,7 @@ export default function RothPage() {
                   🏅 2× Challenge Roth Finisher (PB: 9:40)
                 </p>
                 <div className="mt-8">
-                  <BookingButton url={INTRO_CALL_URL}>
+                  <BookingButton url={COACHING_CALL_URL}>
                     Kostenloses Kennenlerngespräch buchen
                   </BookingButton>
                 </div>
@@ -350,7 +349,7 @@ export default function RothPage() {
                 </p>
               </div>
               <div className="mt-8">
-                <BookingButton url={INTRO_CALL_URL}>
+                <BookingButton url={COACHING_CALL_URL}>
                   Kostenloses Kennenlerngespräch buchen
                 </BookingButton>
               </div>

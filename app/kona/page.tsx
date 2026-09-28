@@ -8,7 +8,7 @@ import {
 import { JsonLd } from "../components/JsonLd";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteHeader } from "../components/SiteHeader";
-import { BOOKING_URLS } from "../lib/booking";
+import { COACHING_CALL_URL } from "../lib/booking";
 import {
   breadcrumbHome,
   createBreadcrumbStructuredData,
@@ -16,7 +16,6 @@ import {
 } from "../lib/structured-data";
 import { createPageMetadata } from "../lib/site";
 
-const INTRO_CALL_URL = BOOKING_URLS.intro;
 const TRIDOT_URL =
   "https://app.tridot.com/onboard/sign-up/andreasschoenherr";
 const RUNDOT_URL =
@@ -483,7 +482,7 @@ export default function KonaPage() {
                   "Coaching that adapts to your life, your goals and your performance",
                 ]}
                 buttonLabel="Apply for Coaching"
-                bookingUrl={INTRO_CALL_URL}
+                bookingUrl={COACHING_CALL_URL}
               />
 
               <div className="mx-auto mt-24 max-w-3xl border-t border-border pt-20">
@@ -518,7 +517,7 @@ export default function KonaPage() {
               </div>
 
               <div className="mt-20 flex flex-col items-center gap-5 sm:flex-row sm:justify-center">
-                <BookingButton url={INTRO_CALL_URL}>
+                <BookingButton url={COACHING_CALL_URL}>
                   Book a free coaching call
                 </BookingButton>
                 <OutlineLink href="/">Explore Coaching</OutlineLink>

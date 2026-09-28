@@ -8,7 +8,7 @@ import {
 import { JsonLd } from "../components/JsonLd";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteHeader } from "../components/SiteHeader";
-import { BOOKING_URLS } from "../lib/booking";
+import { COACHING_CALL_URL } from "../lib/booking";
 import { GOOGLE_REVIEWS, GOOGLE_REVIEWS_URL } from "../lib/reviews";
 import {
   breadcrumbHome,
@@ -16,8 +16,6 @@ import {
   createBreadcrumbStructuredData,
 } from "../lib/structured-data";
 import { createPageMetadata } from "../lib/site";
-
-const INTRO_CALL_URL = BOOKING_URLS.intro;
 
 const PAGE_TITLE = "About Andreas Schönherr | TriDream Coaching";
 const PAGE_DESCRIPTION =
@@ -539,7 +537,7 @@ export default function AboutPage() {
                 see what kind of support makes sense for you.
               </p>
               <div className="mt-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center">
-                <BookingButton url={INTRO_CALL_URL}>
+                <BookingButton url={COACHING_CALL_URL}>
                   Book a free coaching call
                 </BookingButton>
                 <Link
